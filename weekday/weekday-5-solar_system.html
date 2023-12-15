@@ -1,0 +1,104 @@
+
+<html>
+	<head>
+		<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image.prod.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image.aframe.js"></script>
+		<script src="solar_system.js"></script>
+        <title>Домашнє завдання №5</title>
+	</head>
+	<body>
+		<a-scene
+        mindar-image="imageTargetSrc: ./solar_system.mind;"
+        vr-mode-ui="enabled: false"
+        id="scene"
+        >
+
+            <!-- This is a "mixin" we can apply to planets to make them
+            rotate-->
+            <a-mixin id="rotation" animation="property: rotation; loop: true; from:  -90 0 0; to: -90 360 0; dur: 20000; easing: linear;"></a-mixin>
+
+            <!-- here is a "mixin" that we can apply to a container to make the
+            planet inside it orbit -->
+            <a-mixin id="orbit" animation="property: rotation; loop: true; to: 0 360 0; dur: 40000; easing: linear;"></a-mixin>
+
+            <a-assets>
+                <img id="sun-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2F1024px-Map_of_the_full_sun.jpg?1540859304920"
+                    crossorigin="anonymous">
+                <img id="mercury-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fmercurymap.jpg?1541102122291"
+                    crossorigin="anonymous">
+                <img id="venus-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fvenusmap.jpg?1541102155907"
+                    crossorigin="anonymous">
+                <img id="earth-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fearthmap1k.jpg?1541102064615"
+                    crossorigin="anonymous">
+                <img id="mars-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fmars_1k_color.jpg?1541102234577"
+                    crossorigin="anonymous">
+                <img id="jupiter-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fjupitermap.jpg?1541101634813"
+                    crossorigin="anonymous">
+                <img id="saturn-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fsaturnmap.jpg?1541102148468"
+                    crossorigin="anonymous">
+                <img id="uranus-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Furanusmap.jpg?1541102150185"
+                    crossorigin="anonymous">
+                <img id="neptune-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fneptunemap.jpg?1541102137305"
+                    crossorigin="anonymous">
+                <img id="pluto-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fplutomap1k.jpg?1541102145905"
+                    crossorigin="anonymous">
+                <img id="moon-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2FMoonmap_from_clementine_data.png?1541102132708"
+                    crossorigin="anonymous">
+                <a-asset-item id="asteroids" response-type="arraybuffer" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fasteroides.glb?1541106805090"></a-asset-item>
+            </a-assets>
+
+            <a-entity id="basic-light" light="type: ambient; color: #BBB"></a-entity>
+
+            <!--use our new orbit-controls-->
+            <a-entity camera="" look-controls position="0 0 443.57" data-aframe-inspector-original-camera="" wasd-controls="acceleration: 1800; wsAxis: y; fly: true"></a-entity>
+
+
+			<a-sky radius="4500" src="Real_Stars.PNG"></a-sky>
+
+            <a-sphere id="sun" radius="20.510" src="#sun-texture" mixin="rotation" 
+                material="shader: flat;" planet="dist: 0; mass: 1.989e30; name:	Sun"></a-sphere>
+
+			<a-sphere id="mercury" radius="2.4397" src="#mercury-texture" mixin="orbit" planet="dist: 57.910e9; mass: 3.285e23; T: 88; name: Mercury"></a-sphere>
+            <a-entity geometry="primitive: torus; radius: 57.910; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+            <a-sphere id="venus" radius="6.0518" src="#venus-texture" mixin="rotation" planet="dist: 108.21e9; mass: 4.86756e24; T: 224.701; name: Venus"></a-sphere>
+            <a-entity geometry="primitive: torus; radius: 108.21; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+            <a-sphere id="mars" radius="3.3895" src="#mars-texture" mixin="rotation" planet="dist: 227.9e9; mass: 6.4171e23; T: 686.980; name: Mars"></a-sphere>
+            <a-entity geometry="primitive: torus; radius: 227.9; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+            <a-sphere id="jupiter" radius="69.911" src="#jupiter-texture" mixin="rotation" planet="dist: 778.3e9; mass: 1.898e27; T: 4333; name: Jupiter"></a-sphere>
+            <a-entity geometry="primitive: torus; radius: 778.3; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+            <a-sphere id="pluto" radius="1,188 " src="#pluto-texture" mixin="rotation" planet="dist: 5.91e12; mass: 1.303e22; T: 90560; name: Pluto"></a-sphere>
+            <a-entity geometry="primitive: torus; radius: 5910; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+
+            <!--there are two orbits here- the earth itself and the earth around the moon-->
+
+
+             <a-sphere id="earth-and-moon" radius="6.0518" id="earth" src="#earth-texture" mixin="rotation" planet="dist: 149.6e9; mass: 6e24; T: 365; name: Earth">
+             	    <a-entity id="moon-container" mixin="orbit">
+                        <a-sphere position="-10 0 0" radius="2.10" id="moon" src="#moon-texture"></a-sphere>
+                    </a-entity>
+             </a-sphere>
+             <a-entity geometry="primitive: torus; radius: 149.6; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+
+             <a-sphere radius="58.232" id="saturn" src="#saturn-texture" mixin="rotation" planet="dist: 1.43e12; mass:  5.683e26; T: 10759; name: Saturn"></a-sphere>
+             <a-entity geometry="primitive: torus; radius: 1430; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+             <a-sphere id="uranus" radius="25.362" src="#uranus-texture" mixin="rotation" planet="dist: 2.87e12; mass: 8.6813e25; T: 30866; name: Uranus"></a-sphere>
+             <a-entity geometry="primitive: torus; radius: 2870; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+             <a-sphere id="neptune" radius="24.622" src="#neptune-texture" mixin="rotation" planet="dist: 4.50e12; mass: 1.024e26; T: 60190; name: Neptune"></a-sphere>
+             <a-entity geometry="primitive: torus; radius: 4500; radiusTubular: 0.1; segmentsTubular: 50" material="color: #FFFFFF; opacity: 0.3" rotation="" scale=""></a-entity>
+
+
+			<a-entity main></a-entity>
+		</a-scene>
+	</body>
+</html>
+
