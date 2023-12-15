@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<head>
+  		<meta charset="UTF-8">
+  		<title>Звіт щодо навчальної діяльності - Василенко Катерини</title>
+  		<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel="stylesheet" href="./style.css">
+		</head>
+	<body>
+		<h1>Виконала студентка групи ХІМ-23 Василенко Катерина</h1>
+		<img src="1.jpg" width="128px">
+		<p>Звіт щодо навчальної діяльності - Василенко Катерини</p>
+		<ol>
+			<li><a href="0920.html" target="_blank">Приклад сцени від 20 вересня</a></li>
+			<li><a href="1004.html" target="_blank">Приклад сцени від 20 вересня (AR.js)</a></li>
+			<li><a href="1004mind.html" target="_blank">Приклад сцени від 20 вересня (MindAR)</a></li>
+			<li><a href="solar_system.html" target="_blank">Імерсивна Сонячна система</a></li>
+			<li><a href="1026.html" target="_blank">Одночасне використання декількох маркерів</a></li>
+			<li><a href="1102.html" target="_blank">Three.js, scene VR</a></li>
+			<li><a href="1102_1.html" target="_blank">Three.js, scene VR, MindAR</a></li>
+			<li><a href="exp_tm.html" target="_blank">Stone, Scissors, Paper</a></li>
+			<li><a href="exp_tm2.html" target="_blank">Stone, Scissors, Paper + MindAR</a></li>
+			<li><a href="1115.html" target="_blank">Завантаження текстур, відео та моделей</a></li>
+			<li><a href="exp_tm3.html" target="_blank">Mobilenet + MindAR</a></li>
+			<li><a href="exp_tm4.html" target="_blank">Handpose + MindAR</a></li>
+			<li><a href="facemesh.html" target="_blank">facemesh</a></li>
+			<li><a href="webxr.html" target="_blank">webxr example</a></li>
+			<li><a href="faceage.html" target="_blank">face-api example</a></li>
+		</ol>
+		<HR>
+		<h2>Інноваційні цифрові технології в освіті</h2>	
+			 <ul class="anchornav">
+			 	<li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\ARindex.html">Домашнє завдання 1<br><span>Використовуючи матеріали тижня (посібник до п. 3.5 включно), створіть описану в них сцену, розмістить файл із нею у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки</span></a></li>
+				<li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday2.html">Домашнє завдання 2<br><span>Використовуючи матеріали тижня (посібник до п. 3.10), створіть описану в них сцену із текстурою, надписом українською із власним прізвищем, виконаними за допомогою згенерованого Вами шрифту, та довільною моделлю. Розмістить файли із ними у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday3.html">Домашнє завдання 3<br><span>Використовуючи матеріали тижня, перенесіть сцену попереднього домашнього завдання у доповнену реальність.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday4.html">Домашнє завдання 4<br><span>Використовуючи матеріали тижня, прив'яжіть довільні три об'єкти A-Frame до маркерів Hiro, Kanji та власного маркеру, розмістить необхідні файли у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки та зображення власного маркеру.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday-5-solar_system.html">Домашнє завдання 5<br><span>Використовуючи матеріали тижня, створіть описану в них модель у віртуальній реальності, додавши до неї всі планети Сонячної системи з відповідними текстурами. Використовуючи MindAR, створіть власний маркер та перенесіть створену сцену до доповненої реальності. Розмістить файли із сценами у віртуальній та доповненій реальності, створений маркер (.mind) та його зображення (.png) у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday-5-solar_system-mind-ar.html">Домашнє завдання 5 (Mind-AR версія)<br><span>Використовуючи MindAR, створіть власний маркер та перенесіть створену сцену до доповненої реальності. Розмістить файли із сценами у віртуальній та доповненій реальності, створений маркер (.mind) та його зображення (.png) у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday-5-glitch.html">Домашнє завдання 5 (Glitch версія)<br><span> </span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday6.html">Домашнє завдання 6<br><span>Використовуючи матеріали тижня, модифікуйте описану в них сцену для побудови чотирикутника на маркерах з літерами A, B, C та D, для якого обчисліть, виведіть його периметр та площі усіх трикутників, що можна розташувати на цих маркерах. Розмістить файл із сценою у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="">Лабораторна робота 1<br><span>Створіть модель гумової кульки, що падає на похилу площину</span></a></li>
+            <li><a href="">Лабораторна робота 2<br><span>Використовуючі матеріал дані завдання власного варіанту першої лабораторної роботи, створіть сцену із лабораторної роботи 1 з використанням засобів Three.js та MindAR. В якості звіту надайте посилання на:<p></p></span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday9.html">Домашнє завдання 9<br><span>Використовуючи MindAR, створіть два власні маркери та прив'яжіть до першого довільне відео, а до другого - довільну модель. </span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday\weekday10.html">Домашнє завдання 10<br><span>Використовуючи модель handpose, обчисліть та виведіть кути між пальцями руки, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="C:\Users\Asus\Desktop\ІІСТЕ\weekday11\weekday11.html">Домашнє завдання 11<br><span>Використовуючи матеріали тижня, створіть власну маску для обличчя та відповідну сцену у MindAR. В якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages програму для перевірки.</span></a></li>
+            <li><a href="">Домашнє завдання 12<br><span>Використовуючи матеріали тижня, створіть сцену із двома довільними моделями за відносними віртуальними координатами ліворуч та праворуч від себе, розмістить файл із нею у власному репозитарії GitHub, а в якості відповіді надішліть гіперпосилання на опубліковану у GitHub Pages сцену для перевірки.</span></a></li>
+            <li><a href="">Лабораторна робота 3<br><span>Використовуючий матеріал тижня, перенесіть сцену із другої лабораторної роботи до WebXR, використовуючи компонент ARButton. В якості звіту надайте посилання на сцену у доповненій реальності, розроблену за допомогою Three.js.</span></a></li>            
+         </ul>
+
+	<section class="section section--contact" id="contact">
+    	<div class="section__inner">
+        <div class="block">
+            <h2>Для пропозицій та<br>зауважень:<br>
+                <span><a href="mailto:kassandra127@gmail.com">kassandra127@gmail.com</a></span><br>
+        </div>
+    	</div>
+	</section>
+	</body>
+</html>

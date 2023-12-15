@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="aframe/aframe.min.js"></script>
+		<script src="arjs/aframe-ar.js"></script>
+		<script src="1026_code.js"></script>
+	</head>
+
+	<body>
+		<a-scene arjs embedded vr-mode-ui="enabled: false;">
+			<a-marker type="pattern" url="assets/pattern-letterA.patt" registerevents id="A">
+				<a-sphere radius="0.1" color="red">
+				<a-entity id="AB"></a-entity>
+			</a-marker>
+			<a-marker type="pattern" url="assets/pattern-letterB.patt" registerevents id="B">
+				<a-sphere radius="0.1" color="red">
+			</a-marker>
+			<a-entity camera></a-entity>
+			<a-entity run></a-entity>
+		</a-scene>
+	</body>
+</html>
