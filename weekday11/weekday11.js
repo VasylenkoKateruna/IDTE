@@ -32,5 +32,3 @@ window.addEventListener("DOMContentLoaded", async () => {
 	  renderer.render(scene, camera);
       });
 });
-
-
