@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const start = async() => {
         const mindarThree = new MindARThree({
             container: document.body,
-            imageTargetSrc: "houdini.mind",
+            imageTargetSrc: "assets/cap.mind",
             uiLoading: "yes", uiScanning: "no", uiError: "yes",
         });
         const {renderer, scene, camera} = mindarThree;
