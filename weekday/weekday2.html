@@ -18,20 +18,7 @@
 				<a-asset-item id="brainstem" src="https://raw.githubusercontent.com/aframevr/assets/master/test-models/models/glTF-2.0/brainstem/BrainStem.gltf"></a-asset-item>
 			</a-assets>
 			<!--<<a-sky color="grey"></a-sky>-->
-			<!-- Підставка для ялинки -->
-      			<a-cylinder position="0 0 -5" radius="2" height="0.5" color="#8B4513"></a-cylinder>
-
-      			<!-- Стовбур ялинки -->
-      			<a-cylinder position="0 0 -5" radius="0.3" height="2" color="#8B4513"></a-cylinder>
-
-      			<!-- Гілки ялинки -->
-      			<a-cone position="0 1 -5" radius-bottom="1" radius-top="0.1" height="2" rotation="0 0 0" color="#228B22"></a-cone>
-      			<a-cone position="0 1 -5" radius-bottom="0.8" radius-top="0.1" height="2" rotation="0 60 0" color="#228B22"></a-cone>
-      			<a-cone position="0 1 -5" radius-bottom="0.6" radius-top="0.1" height="2" rotation="0 120 0" color="#228B22"></a-cone>
-      			<a-cone position="0 1 -5" radius-bottom="0.4" radius-top="0.1" height="2" rotation="0 180 0" color="#228B22"></a-cone>
-      			<a-cone position="0 1 -5" radius-bottom="0.2" radius-top="0.1" height="2" rotation="0 240 0" color="#228B22"></a-cone>
-      			<a-cone position="0 1 -5" radius-bottom="0.1" radius-top="0.1" height="1" rotation="0 300 0" color="#228B22"></a-cone>
-			
+			<a-obj-model src="weekday/12221_Cat_v1_l3.obj" mtl="weekday/12221_Cat_v1_l3.mtl" position="0 1 -5" rotation="270 125 180" scale="0.005 0.005 0.005" animation__move="property: rotation; dur: 18000;  to: 270 485 180; loop: true; easing: linear"></a-obj-model>
 			<a-torus position="-2 1 -5" color="green" radius="1.2" animation="property: components.material.material.color; type: color; from: green; to: red; loop: true; dur: 10000"></a-torus>
 			<a-plane src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg" width="7" height="7" rotation="-55 0 0" position="-2 -2 -5" color="purple"></a-plane>
 			<a-plane src="#canestra" width="7" height="7" rotation="-55 0 0" position="-2 -2 -5" color="purple"></a-plane>
