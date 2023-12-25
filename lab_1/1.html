@@ -19,41 +19,15 @@
       <img id="woodTexture" src="disturb.jpg">
     </a-assets>
 
-    
-     <a-entity id="cameraRig" position="0 1.6 0">
-      <a-entity id="camera" camera look-controls></a-entity>
-    </a-entity>
+    <!-- Гумова кулька з анімацією та абсолютно пружними ударами -->
+      <a-sphere position="0 5 -4" radius="1" color="#FF5733" dynamic-body elastic="bounce: 1;"></a-sphere>
 
-    <a-animation attribute="rotation" to="0 360 0" repeat="indefinite" dur="10000"></a-animation>
-    
-    <!-- Обробник події для пружного удару -->
-    <a-entity id="ground" position="0 0 -4" static-body></a-entity>
-    <a-collision id="collision" event-set__hitground="_event: collision;
-                           _target: #mySphere;
-                           impulse: 150;"
-                  mixin="collision-handler"></a-collision>
+      <!-- Камера та світло -->
+      <a-camera position="0 1.6 0"></a-camera>
+      <a-light type="ambient" color="#888"></a-light>
+      <a-light type="point" position="0 2 0" intensity="2"></a-light>
 
-    <!-- Створення сценарію у скрипті -->
-    <script>
-      AFRAME.registerComponent('collision-handler', {
-        schema: {
-          impulse: { type: 'number', default: 1 }
-        },
-        init: function () {
-          this.el.addEventListener('hitground', this.handleHitGround.bind(this));
-        },
-        handleHitGround: function () {
-          var impulse = this.data.impulse;
-          this.el.body.applyImpulse(new CANNON.Vec3(0, impulse, 0), this.el.body.position);
-        }
-      });
-      
-      
-    </script>
-    
-     <!-- Додайте компонент 'follow-ball' для камери -->
-     <a-entity camera look-controls follow-ball></a-entity>
-    
+
   </a-scene>
 </body>
 </html>
