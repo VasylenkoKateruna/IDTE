@@ -3,35 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Гумова кулька на похилій площині</title>
+  <!-- Підключення A-Frame -->
   <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <!-- Підключення бібліотеки фізики -->
   <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system/dist/aframe-physics-system.min.js"></script>
-
 </head>
 <body>
-  <a-scene physics="friction: 0.1; restitution: 1.1">
-     <!-- Похила площина -->
-    <a-plane src="hardwood2_diffuse.jpg" width="10" height="10" rotation="-60 -90 0" position="0 0 -7" ></a-plane>
-       
-    <!-- Гумова кулька -->
-    <a-sphere position="0 3 -4" radius="1" segments-height="16" 
-              material="src: #woodTexture;"></a-sphere>
+  <a-scene physics>
+    <!-- Похила площина з фізичними властивостями -->
+    <a-plane src="hardwood2_diffuse.jpg" width="10" height="10" rotation="-45 0 0" position="0 0 -4" ></a-plane>
+
+    <!-- Гумова кулька з фізичними властивостями -->
+    <a-sphere position="0 5 -4" radius="1" segments-height="16" 
+              material="src: #woodTexture;" dynamic-body></a-sphere>
    
     <!-- Текстура "wood" -->
     <a-assets>
       <img id="woodTexture" src="disturb.jpg">
     </a-assets>
 
-    <!-- Гумова кулька з анімацією та абсолютно пружними ударами -->
-      <a-sphere position="0 5 -4" radius="1" color="#FF5733" dynamic-body elastic="bounce: 1;"></a-sphere>
     <!-- Рухаючася камера -->
-      <a-camera id="main-camera" position="0 1.6 0" rotation="-30 0 0">
-      <a-spehere animation="attribute:position; to:0 1 -4; dur:3000; fill:forwards; repeat:0; begin:fall;" animation="attribute:segments-height; to:6; dur: 3000; fill:forwards; repeat:0; begin:changeSegments;"> 
-       
-       </a-camera>
+    <a-camera id="main-camera" position="0 1.6 0" rotation="-30 0 0"></a-camera>
 
-      <!-- Камера та світло -->
-      <a-light type="ambient" color="#888"></a-light>
-      <a-light type="point" position="0 2 0" intensity="2"></a-light>
+    <!-- Камера та світло -->
+    <a-light type="ambient" color="#888"></a-light>
+    <a-light type="point" position="0 2 0" intensity="2"></a-light>
   </a-scene>
 </body>
 </html>
