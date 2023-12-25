@@ -9,9 +9,9 @@
   <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system/dist/aframe-physics-system.min.js"></script>
 </head>
 <body>
-  <a-scene physics>
+  <a-scene physics="friction: 0.1; restitution: 1.1">
     <!-- Похила площина з фізичними властивостями -->
-    <a-plane src="hardwood2_diffuse.jpg" width="10" height="10" rotation="-45 0 0" position="0 0 -4" ></a-plane>
+    <a-plane src="hardwood2_diffuse.jpg" width="10" height="10" rotation="-45 0 0" position="0 0 -4" static-body></a-plane>
 
     <!-- Гумова кулька з фізичними властивостями -->
     <a-sphere position="0 5 -4" radius="1" segments-height="16" 
