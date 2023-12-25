@@ -24,21 +24,9 @@
       <a-sphere position="0 5 -4" radius="1" color="#FF5733" dynamic-body elastic="bounce: 1;"></a-sphere>
     <!-- Рухаючася камера -->
       <a-camera id="main-camera" position="0 1.6 0" rotation="-30 0 0">
-        <a-animation attribute="position"
-                     to="0 1 -4"
-                     dur="3000"
-                     fill="forwards"
-                     repeat="0"
-                     begin="fall">
-        </a-animation>
-        <a-animation attribute="segments-height"
-                     to="6"
-                     dur="3000"
-                     fill="forwards"
-                     repeat="0"
-                     begin="changeSegments">
-        </a-animation>
-      </a-camera>
+      <a-spehere animation="attribute:position; to:0 1 -4; dur:3000; fill:forwards; repeat:0; begin:fall;" animation="attribute:segments-height; to:6; dur: 3000; fill:forwards; repeat:0; begin:changeSegments;"> 
+       
+       </a-camera>
 
       <!-- Камера та світло -->
       <a-light type="ambient" color="#888"></a-light>
