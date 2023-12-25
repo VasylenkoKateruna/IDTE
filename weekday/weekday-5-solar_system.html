@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-
+		<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image.prod.js"></script>
+        	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        	<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image.aframe.js"></script>
 		<script src="weekday5.js"></script>
         <title>Домашнє завдання №5</title>
 	</head>
@@ -26,17 +28,24 @@
                     crossorigin="anonymous">
                 <img id="mercury-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fmercurymap.jpg?1541102122291"
                     crossorigin="anonymous">
-                <img id="venus-texture" src="https://kartinki.pics/uploads/posts/2021-07/1625895846_34-kartinkin-com-p-tekstura-planeti-krasivo-44.jpg">
-                <img id="earth-texture" src="https://github.com/aframevr/sample-assets/blob/master/assets/images/space/earth_atmos_4096.jpg">
-                <img id="mars-texture" src="https://kartinki.pics/uploads/posts/2021-07/1625895836_19-kartinkin-com-p-tekstura-planeti-krasivo-26.jpg">
-                <img id="jupiter-texture" src="https://kartinki.pics/uploads/posts/2021-07/1625895834_35-kartinkin-com-p-tekstura-planeti-krasivo-47.jpg">
-                <img id="saturn-texture" src="https://kalix.club/uploads/posts/2022-12/1671717900_kalix-club-p-tekstura-saturna-vkontakte-17.jpg">
-                <img id="uranus-texture" src="https://kalix.club/uploads/posts/2022-12/1671679029_kalix-club-p-tekstura-planeti-instagram-44.png">
-                <img id="neptune-texture" src="https://kartinki.pics/uploads/posts/2021-07/1625895812_45-kartinkin-com-p-tekstura-planeti-krasivo-61.jpg">
-                <img id="moon-texture" src="https://kartinki.pics/uploads/posts/2021-07/1625895818_41-kartinkin-com-p-tekstura-planeti-krasivo-55.jpg">
+                <img id="venus-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fvenusmap.jpg?1541102155907"
+                    crossorigin="anonymous">
+                <img id="earth-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fearthmap1k.jpg?1541102064615"
+                    crossorigin="anonymous">
+                <img id="mars-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fmars_1k_color.jpg?1541102234577"
+                    crossorigin="anonymous">
+                <img id="jupiter-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fjupitermap.jpg?1541101634813"
+                    crossorigin="anonymous">
+                <img id="saturn-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fsaturnmap.jpg?1541102148468"
+                    crossorigin="anonymous">
+                <img id="uranus-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Furanusmap.jpg?1541102150185"
+                    crossorigin="anonymous">
+                <img id="neptune-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fneptunemap.jpg?1541102137305"
+                    crossorigin="anonymous">
+                <img id="moon-texture" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2FMoonmap_from_clementine_data.png?1541102132708"
+                    crossorigin="anonymous">
                 <a-asset-item id="asteroids" response-type="arraybuffer" src="https://cdn.glitch.com/d558c128-2ed0-4284-a0da-4d18b9163ad6%2Fasteroides.glb?1541106805090"></a-asset-item>
             </a-assets>
-
             <a-entity id="basic-light" light="type: ambient; color: #BBB"></a-entity>
 
             <!--use our new orbit-controls-->
