@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <title>Гумова кулька на похилій площині</title>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.1/dist/aframe-extras.min.js"></script>
 </head>
 <body>
   <a-scene>
@@ -21,13 +24,23 @@
 
     <!-- Гумова кулька з анімацією та абсолютно пружними ударами -->
       <a-sphere position="0 5 -4" radius="1" color="#FF5733" dynamic-body elastic="bounce: 1;"></a-sphere>
+    <!-- Рухаючася камера -->
+      <a-camera id="main-camera" position="0 1.6 0" rotation="-30 0 0">
+        <a-animation attribute="position"
+                     to="0 5 -4"
+                     dur="3000"
+                     fill="forwards"
+                     repeat="0"
+                     begin="moveCamera">
+        </a-animation>
+      </a-camera>
+
+      <!-- Сценарій для запуску анімації -->
+      <a-entity id="scene-script" animation__move="property: rotation; to: 0 0 0; dur: 3000; easing: linear; loop: 0; startEvents: moveCamera"></a-entity>
 
       <!-- Камера та світло -->
-      <a-camera position="0 1.6 0"></a-camera>
       <a-light type="ambient" color="#888"></a-light>
       <a-light type="point" position="0 2 0" intensity="2"></a-light>
-
-
   </a-scene>
 </body>
 </html>
