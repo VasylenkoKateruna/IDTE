@@ -38,7 +38,7 @@ function initMindArScene()
     const mindarThree = new MindARThree(
         {
             container: document.body,
-            imageTargetSrc: "../assets/markers/rutherford_und_thumb/targets.mind",
+            imageTargetSrc: "week9.mind",
             maxTrack: 2,
             uiLoading: "no",
             uiScanning: "yes",
