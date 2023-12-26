@@ -16,6 +16,9 @@
     <!-- Гумова кулька з фізичними властивостями -->
     <a-sphere position="0 5 -4" radius="1" segments-height="16" 
               material="src: #woodTexture;" dynamic-body></a-sphere>
+
+    <a-sphere animation="property: rotation; to: 0 2 -1; loop: true; dur: 10000"
+             animation__2="property: segments-height; to 2"></a-sphere>
    
     <!-- Текстура "wood" -->
     <a-assets>
