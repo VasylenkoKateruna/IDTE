@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const anchor_model = mindarThree.addAnchor(1);
 
         const loader = new GLTFLoader();
-        loader.load("../hw/GiftBox.gltf", (gltf) => {
+        loader.load("../weekday/Cactus.gltf", (gltf) => {
             const model = gltf.scene;
             model.scale.set(0.5, 0.5, 0.5);
             anchor_model.group.add(model);
