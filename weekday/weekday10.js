@@ -28,56 +28,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		let counter = 1;
 
-		renderer.setAnimationLoop(async () => {
-			counter += 1;
-			if(counter % 10 == 0)
-			{
-				const hands = await detector.estimateHands(mindarThree.video);
-				let str = "";
-				if(hands.length == 0)
-					results.innerHTML = "Не видно рук";
-				else
-				{
-					for(let h =0 ; h<hands.length; h++)
-					{
-						str += "Визначено ";
-						if(hands[h]["handedness"]=="Left")
-							str+="ліву руку";
-						else
-							str+="праву руку";
-						str+=" з ймовірністю "+hands[h]["score"].toFixed(2)+"\n";
-						for(let k=0;k<hands[h]["keypoints"].length;k++)
-							str+= hands[h]["keypoints"][k]["name"]+ 
-								" ("+
-								hands[h]["keypoints"][k]["x"].toFixed(0) +
-								", "+
-								hands[h]["keypoints"][k]["y"].toFixed(0) +
-								")\n";
-					}
-					results.innerHTML = str;
-				}
-				//console.log(hands);
-/*
-				let number = 0, prob = prediction[0].probability;
-				for (let i = 0; i < prediction.length; i++) 
-				{
-					str = str + prediction[i].className + ": " + prediction[i].probability.toFixed(2) + "\n";
-					if (prediction[i].probability > prob)
-					{
-						number = i;
-						prob = prediction[i].probability;
-					}
-				}
-				if (prob >= 0.5)
-					str += "\n"+prediction[number].className;
+	        renderer.setAnimationLoop(async () => {
+            counter += 1;
+            if(counter % 10 == 0) {
+                const hands = await detector.estimateHands(mindarThree.video);
+                let str = "";
+                if(hands.length == 0) {
+                    str = "Не видно рук";
+                } else {
+                    hands.forEach(hand => {
+                        const handType = hand["handedness"] == "Left" ? "ліва" : "права";
+                        str += `Визначено ${handType} руку з ймовірністю ${hand["score"].toFixed(2)}\n`;
 
-				results.innerHTML = str;
-*/
-			}
-		  	renderer.render(scene, camera);
-		});
+                        // Перерахування всіх пальців
+                        const fingers = ["Великий", "Вказівний", "Середній", "Безіменний", "Мізинець"];
+                        const mcpIndices = [2, 5, 9,13, 17];
+                        const tipIndices = [4, 8, 12, 16, 20];
 
-	}
+                        fingers.forEach((finger, index) => {
+                            if (index < fingers.length - 1) {
+                                const fingerMCP = hand["keypoints"][mcpIndices[index]];
+                                const fingerTIP = hand["keypoints"][tipIndices[index]];
+                                const nextFingerMCP = hand["keypoints"][mcpIndices[index + 1]];
+
+                                const vectorCurrent = { x: fingerTIP.x - fingerMCP.x, y: fingerTIP.y - fingerMCP.y };
+                                const vectorNext = { x: hand["keypoints"][tipIndices[index + 1]].x - nextFingerMCP.x, y: hand["keypoints"][tipIndices[index + 1]].y - nextFingerMCP.y };
+
+                                const angle = calculateAngleBetweenVectors(vectorCurrent, vectorNext);
+                                str += `Кут між ${finger} і ${fingers[index + 1]} пальцями: ${angle.toFixed(2)} градусів\n`;
+                            }
+                        });
+                    });
+                }
+                results.innerHTML = str;
+            }
+            renderer.render(scene, camera);
+        });
+    }
 	start();
 });
 
@@ -323,67 +310,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "handedness": "Left"
     }
 ]
-document.addEventListener("DOMContentLoaded", () => {
-    const start = async() => {
-        const mindarThree = new MindARThree({
-            container: document.body,
-            imageTargetSrc: "assets/cap.mind",
-            uiLoading: "yes", uiScanning: "no", uiError: "yes",
-        });
-        const {renderer, scene, camera} = mindarThree;
-
-        const anchor = mindarThree.addAnchor(0);
-        const results = document.getElementById("results");
-
-        const model = handPoseDetection.SupportedModels.MediaPipeHands;
-        const detectorConfig = {
-            runtime: 'mediapipe', // or 'tfjs',
-            solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands',
-            modelType: 'full'
-        }
-        const detector = await handPoseDetection.createDetector(model, detectorConfig);
-
-        await mindarThree.start();
-        let counter = 1;
-
-        renderer.setAnimationLoop(async () => {
-            counter += 1;
-            if(counter % 10 == 0) {
-                const hands = await detector.estimateHands(mindarThree.video);
-                let str = "";
-                if(hands.length == 0) {
-                    str = "Не видно рук";
-                } else {
-                    hands.forEach(hand => {
-                        const handType = hand["handedness"] == "Left" ? "ліва" : "права";
-                        str += `Визначено ${handType} руку з ймовірністю ${hand["score"].toFixed(2)}\n`;
-
-                        // Перерахування всіх пальців
-                        const fingers = ["Великий", "Вказівний", "Середній", "Безіменний", "Мізинець"];
-                        const mcpIndices = [2, 5, 9,13, 17];
-                        const tipIndices = [4, 8, 12, 16, 20];
-
-                        fingers.forEach((finger, index) => {
-                            if (index < fingers.length - 1) {
-                                const fingerMCP = hand["keypoints"][mcpIndices[index]];
-                                const fingerTIP = hand["keypoints"][tipIndices[index]];
-                                const nextFingerMCP = hand["keypoints"][mcpIndices[index + 1]];
-
-                                const vectorCurrent = { x: fingerTIP.x - fingerMCP.x, y: fingerTIP.y - fingerMCP.y };
-                                const vectorNext = { x: hand["keypoints"][tipIndices[index + 1]].x - nextFingerMCP.x, y: hand["keypoints"][tipIndices[index + 1]].y - nextFingerMCP.y };
-
-                                const angle = calculateAngleBetweenVectors(vectorCurrent, vectorNext);
-                                str += `Кут між ${finger} і ${fingers[index + 1]} пальцями: ${angle.toFixed(2)} градусів\n`;
-                            }
-                        });
-                    });
-                }
-                results.innerHTML = str;
-            }
-            renderer.render(scene, camera);
-        });
-    }
-    start();
 });
 
 function calculateDistance(point1, point2) {
