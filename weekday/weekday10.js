@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	start();
 });
 
-[
-    {
+[{
         "keypoints": [
             {
                 "x": 197.53149032592773,
