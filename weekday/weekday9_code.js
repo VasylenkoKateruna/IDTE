@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const start = async() => {
 	      const mindarThree = new MindARThree({
 			container: document.body,
-			imageTargetSrc: "cosmic_ship.mind",
+			imageTargetSrc: "week9.mind",
 			maxTrack: 2,
 			uiLoading: "no", 
 			uiScanning: "yes", 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       		},
       		{
 			container: document.body,
-			imageTargetSrc: "houdini.mind",
+			imageTargetSrc: "week_9.mind",
 			maxTrack: 2,
 			uiLoading: "no", 
 			uiScanning: "yes", 
