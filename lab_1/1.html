@@ -17,8 +17,12 @@
     <a-sphere position="0 5 -4" radius="1" segments-height="16" 
               material="src: #woodTexture;" dynamic-body></a-sphere>
 
-    <a-sphere animation="property: rotation; to: 0 2 -1; loop: true; dur: 10000"
-             animation__2="property: segments-height; to 2"></a-sphere>
+    <a-animation attribute="rotation"
+                     to="0 2 -1"
+                     dur="10000"
+                     easing="linear"
+                     repeat="10"></a-animation>
+
    
     <!-- Текстура "wood" -->
     <a-assets>
