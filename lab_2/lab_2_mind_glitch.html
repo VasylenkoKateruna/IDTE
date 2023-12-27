@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>A-Frame Starter Kit - Mini Animated Planetarium</title>
+        <meta name="description" content="Build your own planetarium with A-frame">
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-star-system-component@1.0.0/index.js"></script>
+
+        <!-- let's add the animation and orbit controls components -->
+        <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+    </head>
+<body>
+  <a-scene
+        mindar-image="targets.mind;"
+        vr-mode-ui="enabled: false; enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton"
+        id="scene"
+        >
+     <!-- Похила площина -->
+    <a-plane position="0 0 -4" rotation="-45 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+    <!-- Гумова кулька -->
+    <a-sphere position="0 3 -4" radius="1" color="#EF2D5E" segments-height="16"
+              material="src: #woodTexture;"></a-sphere>
+
+    <!-- Текстура "wood" -->
+    <a-assets>
+      <img id="woodTexture" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/noise/disturb.jpg">
+    </a-assets>
+
+    <!-- Текстура для фону -->
+    <a-assets>
+      <img id="backgroundTexture" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/wood/hardwood2_roughness.jpg">
+    </a-assets>
+
+     <a-entity id="cameraRig" position="0 1.6 0">
+      <a-entity id="camera" camera look-controls></a-entity>
+    </a-entity>
+
+    <a-animation attribute="rotation" to="0 360 0" repeat="indefinite" dur="10000"></a-animation>
+    
+    <!-- Обробник події для пружного удару -->
+    <a-entity id="ground" position="0 0 -4" static-body></a-entity>
+    <a-collision id="collision" event-set__hitground="_event: collision;
+                           _target: #mySphere;
+                           impulse: 150;"
+                  mixin="collision-handler"></a-collision>
+
+    <!-- Створення сценарію у скрипті -->
+    <script>
+      AFRAME.registerComponent('collision-handler', {
+        schema: {
+          impulse: { type: 'number', default: 1 }
+        },
+        init: function () {
+          this.el.addEventListener('hitground', this.handleHitGround.bind(this));
+        },
+        handleHitGround: function () {
+          var impulse = this.data.impulse;
+          this.el.body.applyImpulse(new CANNON.Vec3(0, impulse, 0), this.el.body.position);
+        }
+      });
+      
+    </script>
+    
+     <!-- Додайте компонент 'follow-ball' для камери -->
+     <a-entity camera look-controls follow-ball></a-entity>
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+        <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+        <script src="https://button.glitch.me/button.js"></script>
+  </a-scene>
+</body>
+</html>
